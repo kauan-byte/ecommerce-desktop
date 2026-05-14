@@ -1,0 +1,10 @@
+br/edu/tds/ecommerce/UsuarioDAO.class
+br/edu/tds/ecommerce/TelaCadastroUsuarioController.class
+br/edu/tds/ecommerce/Avaliacao.class
+br/edu/tds/ecommerce/Usuario.class
+br/edu/tds/ecommerce/TelaGerenciamentoUsuariosController.class
+br/edu/tds/ecommerce/TelaInicioController.class
+module-info.class
+br/edu/tds/ecommerce/Conexao.class
+br/edu/tds/ecommerce/TelaLoginController.class
+br/edu/tds/ecommerce/App.class

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #6CA6CD;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.tds.ecommerce.TelaCadastroUsuarioController">
+
+  
+   <left>
+      <AnchorPane prefWidth="300.0" style="-fx-background-color: red;">
+         <children>
+            <Text fx:id="lblTelaEditarUsuario" layoutX="59.0" layoutY="67.0" text="Cadastrar Usuário">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+
+            <Text layoutX="67.0" layoutY="361.0" text="Já possui uma conta?">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+
+            <Hyperlink layoutX="111.0" layoutY="366.0" onAction="#abrirTelaLogin" text="login" />
+            <FontIcon iconLiteral="fas-user-plus" iconSize="80" layoutX="90.0" layoutY="214.0" />
+         </children>
+      </AnchorPane>
+   </left>
+
+  
+   <right>
+      <AnchorPane prefWidth="400.0" style="-fx-background-color: black;">
+         <children>
+
+          
+            <TextField fx:id="txtEmail" layoutX="86.0" layoutY="43.0" prefWidth="242.0" promptText="e-mail" style="-fx-background-color: transparent; -fx-border-width: 0 0 4 0; -fx-border-color: red;" />
+            <Label fx:id="lblEmail" layoutX="86.0" layoutY="73.0" textFill="RED" />
+
+           
+            <TextField fx:id="txtNomeCompleto" layoutX="77.0" layoutY="94.0" prefWidth="252.0" promptText="nome completo" style="-fx-background-color: transparent; -fx-border-width: 0 0 4 0; -fx-border-color: red;" />
+            <Label fx:id="lblNomeCompleto" layoutX="77.0" layoutY="124.0" textFill="RED" />
+
+         
+            <TextField fx:id="txtUserName" layoutX="77.0" layoutY="145.0" prefWidth="252.0" promptText="nome de usuário" style="-fx-background-color: transparent; -fx-border-width: 0 0 4 0; -fx-border-color: red;" />
+            <Label fx:id="lblUserName" layoutX="77.0" layoutY="175.0" textFill="RED" />
+
+          
+            <PasswordField fx:id="txtSenha" layoutX="77.0" layoutY="196.0" prefWidth="252.0" promptText="senha" style="-fx-background-color: transparent; -fx-border-width: 0 0 4 0; -fx-border-color: red;" />
+            <Label fx:id="lblSenha" layoutX="77.0" layoutY="226.0" textFill="RED" />
+
+       
+            <TextField fx:id="txtCpf" layoutX="77.0" layoutY="247.0" prefWidth="252.0" promptText="CPF" style="-fx-background-color: transparent; -fx-border-width: 0 0 4 0; -fx-border-color: red;" />
+            <Label fx:id="lblCpf" layoutX="77.0" layoutY="277.0" textFill="RED" />
+
+          
+            <Button fx:id="btnCadastrar" layoutX="139.0" layoutY="322.0" onAction="#cadastrarUsuario" prefWidth="129.0" style="-fx-background-color: red;" text="Cadastrar" textFill="WHITE" />
+
+         </children>
+      </AnchorPane>
+   </right>
+
+</BorderPane>
