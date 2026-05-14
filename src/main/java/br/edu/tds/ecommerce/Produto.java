@@ -18,8 +18,7 @@ public class Produto {
    private String imagem;
    private boolean ativo;
    
-   public Produto(int id, String nome, String descricao, String categoria, double preco, int quantidade, String imagem, boolean ativo) {
-        this.id = id;
+   public Produto(String nome, String descricao, String categoria, double preco, int quantidade, String imagem, boolean ativo) {
         this.nome = nome;
         this.descricao = descricao;
         this.categoria = categoria;
