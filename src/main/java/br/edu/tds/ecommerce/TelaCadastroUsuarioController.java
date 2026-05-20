@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -30,7 +31,7 @@ public class TelaCadastroUsuarioController implements Initializable {
     private PasswordField txtSenha;
     @FXML
     private TextField txtCpf;
-
+    
     @FXML
     private Label lblEmail;
     @FXML
@@ -41,6 +42,8 @@ public class TelaCadastroUsuarioController implements Initializable {
     private Label lblSenha;
     @FXML
     private Label lblCpf;
+    @FXML 
+    private ComboBox<String> cbRole;
     @FXML
     private Text lblTelaEditarUsuario;
     @FXML
@@ -66,6 +69,7 @@ public class TelaCadastroUsuarioController implements Initializable {
         String email = txtEmail.getText().trim();
         String CPF = txtCpf.getText().trim();
         String senha = txtSenha.getText().trim();
+        String role = cbRole.getValue();
 
         boolean temErro = false;
 
@@ -95,7 +99,7 @@ public class TelaCadastroUsuarioController implements Initializable {
         }
 
         UsuarioDAO dao = new UsuarioDAO();
-        Usuario u = new Usuario(nomeCompleto, nomeUsuario, email, senha, CPF);
+        Usuario u = new Usuario(nomeCompleto, nomeUsuario, email, senha, CPF, role);
 
         try {
             dao.cadastrar(u);
@@ -116,6 +120,7 @@ public class TelaCadastroUsuarioController implements Initializable {
         String email = txtEmail.getText().trim();
         String CPF = txtCpf.getText().trim();
         String senha = txtSenha.getText().trim();
+        String role = cbRole.getValue();
 
         boolean temErro = false;
 
@@ -146,7 +151,7 @@ public class TelaCadastroUsuarioController implements Initializable {
         
         
         UsuarioDAO dao = new UsuarioDAO();
-        Usuario u = new Usuario(nomeCompleto, nomeUsuario, email, senha, CPF);
+        Usuario u = new Usuario(nomeCompleto, nomeUsuario, email, senha, CPF,role);
         dao.atualizar(u);
         mostrarAlerta("O cadastro de "+ u.getNomeCompleto() + "foi atualizado com sucesso");
          FXMLLoader loader = new FXMLLoader(
@@ -208,6 +213,8 @@ public class TelaCadastroUsuarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        cbRole.getItems().add(0, "cliente");
+        cbRole.getItems().add(1, "admin");
 
         limparMensagensErro();
     }
@@ -219,6 +226,7 @@ public class TelaCadastroUsuarioController implements Initializable {
         txtSenha.setText(u.getSenha());
         txtEmail.setText(u.getEmail());
         txtCpf.setText(u.getCPF());
+        cbRole.setValue(u.getRole());
 
         lblTelaEditarUsuario.setText("Atualizar conta de usuario");
         btnCadastrar.setText("Atualizar");

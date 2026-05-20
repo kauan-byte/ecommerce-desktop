@@ -16,7 +16,7 @@ public class UsuarioDAO {
 
     //Cadastra usuários
     public void cadastrar(Usuario usuario) {
-        String sql = "INSERT INTO usuarios (nomeCompleto,nomeUsuario,email,senha,CPF) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO usuarios (nomeCompleto,nomeUsuario,email,senha,CPF,role) VALUES (?,?,?,?,?,?)";
         try (Connection conn = Conexao.conectar()) {
             PreparedStatement stmt = conn.prepareCall(sql);
             stmt.setString(1, usuario.getNomeCompleto());
@@ -24,6 +24,7 @@ public class UsuarioDAO {
             stmt.setString(3, usuario.getEmail());
             stmt.setString(4, usuario.getSenha());
             stmt.setString(5, usuario.getCPF());
+            stmt.setString(6, usuario.getRole());
             System.out.println(stmt.toString());
             stmt.executeUpdate();
             System.out.println("Usuário foi cadastrado com sucesso!");
@@ -33,14 +34,15 @@ public class UsuarioDAO {
     }
     
     public void atualizar(Usuario u) {
-        String sql = "UPDATE usuarios SET nomeCompleto=? ,nomeUsuario=? ,email=? ,senha=? ,CPF=? WHERE nomeUsuario=?";
+        String sql = "UPDATE usuarios SET nomeCompleto=? ,nomeUsuario=? ,email=? ,senha=? ,CPF=? ,role=? WHERE nomeUsuario=?";
         try (Connection conn = Conexao.conectar(); PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, u.getNomeCompleto());
             stmt.setString(2, u.getNomeUsuario());
             stmt.setString(3, u.getEmail());
             stmt.setString(4, u.getSenha());
             stmt.setString(5, u.getCPF());
-            stmt.setString(6, u.getNomeUsuario());
+            stmt.setString(6, u.getRole());
+            stmt.setString(7, u.getNomeUsuario());
             System.out.println(stmt.toString());
             stmt.executeUpdate();
             System.out.println("Usuário " +u.getNomeCompleto() + "atualizado com sucesso!");

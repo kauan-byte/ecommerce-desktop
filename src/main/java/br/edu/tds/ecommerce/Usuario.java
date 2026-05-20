@@ -16,6 +16,19 @@ public class Usuario {
     private String email;
     private String senha;
     private String CPF;
+    private String role;
+    
+    public Usuario(){
+        
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public int getId() {
         return id;
@@ -65,19 +78,14 @@ public class Usuario {
         this.CPF = CPF;
     }
 
-    public Usuario(String nomeCompleto, String nomeUsuario, String email, String senha, String CPF) {
-        this.id = id;
+    public Usuario(String nomeCompleto, String nomeUsuario, String email, String senha, String CPF, String role) {
         this.nomeCompleto = nomeCompleto;
         this.nomeUsuario = nomeUsuario;
         this.email = email;
         this.senha = senha;
         this.CPF = CPF;
+        this.role = role;
     }
-    
-    public Usuario(){
-        
-    }
-  
     
   
 }
