@@ -11,14 +11,15 @@
 <?import javafx.scene.text.Text?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.tds.ecommerce.TelaLoginController">
-   <left>
-      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: black; -fx-border-color: red;" BorderPane.alignment="CENTER">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.tds.ecommerce.TelaLoginController">
+   <center>
+      <AnchorPane prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: black; -fx-border-color: red;" BorderPane.alignment="CENTER">
          <children>
-            <FontIcon iconColor="#fc0202" iconLiteral="fas-users" iconSize="80" layoutX="113.0" layoutY="186.0" />
-            <Text fill="#e80404" layoutX="74.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FAÇA LOGIN NO BLOCKFILMES " wrappingWidth="201.64596557617188" />
-         </children></AnchorPane>
-   </left>
+            <FontIcon iconColor="#fc0202" iconLiteral="fas-users" iconSize="80" layoutX="160.0" layoutY="186.0" />
+            <Text fill="#e80404" layoutX="99.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FAÇA LOGIN NO BLOCKFILMES " textAlignment="CENTER" wrappingWidth="201.64596557617188" />
+         </children>
+      </AnchorPane>
+   </center>
    <right>
       <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-border-color: red; -fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
@@ -45,8 +46,6 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Hyperlink>
-            <Label fx:id="lblUsuario" layoutX="92.0" layoutY="200.0" textFill="RED" />
-            <Label fx:id="lblSenha" layoutX="87.0" layoutY="273.0" textFill="RED" />
             <Label fx:id="lblUsuario" layoutX="92.0" layoutY="200.0" textFill="#eb0101" />
             <Label fx:id="lblSenha" layoutX="87.0" layoutY="273.0" textFill="#f50707" />
          </children>

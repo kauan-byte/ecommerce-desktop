@@ -19,7 +19,8 @@ public class TelaLoginController {
     private PasswordField txtSenha;
     @FXML
     private Label lblUsuario;
-    @FXML private Label lblSenha;
+    @FXML 
+    private Label lblSenha;
 
     @FXML
     private void abrirTelaCadastroUsuario() throws IOException {
@@ -34,7 +35,7 @@ public class TelaLoginController {
     }
     
     @FXML
-    private void realizarLogin() throws IOException{
+    private void realizarLogin() throws IOException {
        String usuario = txtUsuario.getText();
        String senha = txtSenha.getText();
        
@@ -66,24 +67,32 @@ public class TelaLoginController {
        Boolean login = dao.login(usuario, senha);
        
        if(login){
-           //Login com sucesso
-           mostrarAlerta("Login bem sucedido");
-           System.out.println("Login feito");
+            // Login com sucesso
+            mostrarAlerta("Login bem sucedido");
+            System.out.println("Login feito");
+            
+            // ADAPTAÇÃO: Carrega o dashboard.fxml
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/br/edu/tds/ecommerce/telaGerenciamentoUsuarios.fxml"));
+                    getClass().getResource("/br/edu/tds/ecommerce/dashboard.fxml")
+            );
             Parent root = loader.load();
 
-            TelaGerenciamentoUsuariosController controller = loader.getController();
+            // Vincula ao DashboardController profissional
+            DashboardController controller = loader.getController();
 
             Stage stage = (Stage) txtUsuario.getScene().getWindow();
             stage.setScene(new Scene(root));
             
-       }else{
-           //Falha no login (usuario ou senha invalido)
-           lblUsuario.setText("Usuário/senha incorreto(a)");
-           lblSenha.setText("Usuário/senha incorreto(a)");
+            // MAXIMIZA DASHBOARD (Deixa Fullscreen)
+            stage.setMaximized(true);
+            stage.show();
+            
+       } else {
+            // Falha no login (usuario ou senha invalido)
+            lblUsuario.setText("Usuário/Senha incorreto(a)");
+            lblSenha.setText("Usuário/Senha incorreto(a)");
+            System.out.println("Falha no login");
        }
-       
        
        System.out.println("Usuário " + usuario);
        System.out.println("Senha " + senha);
@@ -91,12 +100,10 @@ public class TelaLoginController {
     
     @FXML
     private void mostrarAlerta(String msg) {
-
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Sistema");
         alert.setHeaderText(null);
         alert.setContentText(msg);
         alert.showAndWait();
     }
-    
 }
