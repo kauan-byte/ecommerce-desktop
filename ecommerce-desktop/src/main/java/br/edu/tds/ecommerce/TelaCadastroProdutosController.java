@@ -35,8 +35,6 @@ public class TelaCadastroProdutosController implements Initializable {
    private ComboBox<String> cbCategoria;
  @FXML 
  private CheckBox cAtivo;
- @FXML
-    private Produto produtoEdicao;
 
  
  
@@ -111,19 +109,6 @@ public class TelaCadastroProdutosController implements Initializable {
                 System.out.println("Falha na validação");
             }
         }
-        
-        public void setProduto(Produto p){
-       produtoEdicao = p;
-       
-       txtNome.setText(produtoEdicao.getNome());
-       cbCategoria.setValue(produtoEdicao.getCategoria());
-       txtPreco.setText(String.valueOf(produtoEdicao.getPreco()));
-       txtQuantidade.setText(String.valueOf(produtoEdicao.getQuantidade()));
-       txtImagem.setText(produtoEdicao.getImagem());
-       txtDescricao.setText(produtoEdicao.getDescricao());
-       cAtivo.setSelected(produtoEdicao.isAtivo());
-       
-    }
         
         private void mostrarAlerta(String msg) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
