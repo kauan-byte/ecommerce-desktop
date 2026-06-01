@@ -6,19 +6,23 @@ package br.edu.tds.ecommerce;
 
 /**
  *
- * @author aluno
+ * @author douglas
  */
 public class Produto {
-   private int id;
-   private String nome;
-   private String descricao;
-   private String categoria;
-   private double preco;
-   private int quantidade;
-   private String imagem;
-   private boolean ativo;
-   
-   public Produto(String nome, String descricao, String categoria, double preco, int quantidade, String imagem, boolean ativo) {
+
+    private int id;
+    private String nome;
+    private String descricao;
+    private String categoria;
+    private double preco;
+    private int quantidade;
+    private String imagem;
+    private boolean ativo;
+
+    public Produto() {
+    }
+
+    public Produto(String nome, String descricao, String categoria, double preco, int quantidade, String imagem, boolean ativo) {
         this.nome = nome;
         this.descricao = descricao;
         this.categoria = categoria;
@@ -27,14 +31,11 @@ public class Produto {
         this.imagem = imagem;
         this.ativo = ativo;
     }
-   
-    public Produto() {
-   }
 
     public int getId() {
         return id;
     }
-    
+
     public void setId(int id) {
         this.id = id;
     }
@@ -42,11 +43,10 @@ public class Produto {
     public String getNome() {
         return nome;
     }
-    
+
     public void setNome(String nome) {
         this.nome = nome;
     }
-
 
     public String getDescricao() {
         return descricao;
@@ -55,15 +55,15 @@ public class Produto {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
-     public String getCategoria() {
+
+    public String getCategoria() {
         return categoria;
     }
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-    
+
     public double getPreco() {
         return preco;
     }
@@ -71,7 +71,7 @@ public class Produto {
     public void setPreco(double preco) {
         this.preco = preco;
     }
-    
+
     public int getQuantidade() {
         return quantidade;
     }
@@ -79,7 +79,7 @@ public class Produto {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-    
+
     public String getImagem() {
         return imagem;
     }
@@ -87,7 +87,7 @@ public class Produto {
     public void setImagem(String imagem) {
         this.imagem = imagem;
     }
-    
+
     public boolean isAtivo() {
         return ativo;
     }
@@ -95,5 +95,4 @@ public class Produto {
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
-
 }

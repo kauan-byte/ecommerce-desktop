@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
@@ -6,13 +7,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Created on : 28 de mai. de 2026, 14:38:48
     Author     : alunos
 */.root {
+=======
+.root {
+
+>>>>>>> e08e4b9 (codigo com dashboard)
     -fx-font-family: "Arial";
 }
 
 /* =========================
    SIDEBAR
 ========================= */
+<<<<<<< HEAD
 .sidebar {
+=======
+
+.sidebar {
+
+>>>>>>> e08e4b9 (codigo com dashboard)
     -fx-background-color: linear-gradient(
         to bottom,
         #0598ff,
@@ -25,6 +36,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 ========================= */
 
 .menu-button {
+<<<<<<< HEAD
     -fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-font-size: 18px;
@@ -32,11 +44,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-cursor: hand;
     -fx-alignment: CENTER-LEFT;
     -fx-graphic-text-gap: 15;
+=======
+
+    -fx-background-color: transparent;
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 18px;
+
+    -fx-font-weight: bold;
+
+    -fx-cursor: hand;
+
+    -fx-alignment: CENTER-LEFT;
+
+    -fx-graphic-text-gap: 15;
+
+>>>>>>> e08e4b9 (codigo com dashboard)
     -fx-padding: 15 20 15 20;
 }
 
 .menu-button:hover {
+<<<<<<< HEAD
     -fx-background-color: rgba(255,255,255,0.2);
+=======
+
+    -fx-background-color: rgba(255,255,255,0.2);
+
+>>>>>>> e08e4b9 (codigo com dashboard)
     -fx-background-radius: 12;
 }
 
@@ -45,6 +80,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 ========================= */
 
 .logout-button {
+<<<<<<< HEAD
     -fx-background-color: #e53935;
     -fx-text-fill: white;
     -fx-font-size: 18px;
@@ -54,6 +90,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-padding: 12 20 12 20;
 }
 .logout-button:hover {
+=======
+
+    -fx-background-color: #e53935;
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 18px;
+
+    -fx-font-weight: bold;
+
+    -fx-cursor: hand;
+
+    -fx-background-radius: 12;
+
+    -fx-padding: 12 20 12 20;
+}
+
+.logout-button:hover {
+
+>>>>>>> e08e4b9 (codigo com dashboard)
     -fx-background-color: #c62828;
 }
 
@@ -62,6 +118,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 ========================= */
 
 .dashboard-background {
+<<<<<<< HEAD
+=======
+
+>>>>>>> e08e4b9 (codigo com dashboard)
     -fx-background-color: #f4f6f9;
 }
 
@@ -70,10 +130,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 ========================= */
 
 .card {
+<<<<<<< HEAD
     -fx-background-color: white;
     -fx-background-radius: 25;
     -fx-cursor: hand;
     -fx-padding: 20;
+=======
+
+    -fx-background-color: white;
+
+    -fx-background-radius: 25;
+
+    -fx-cursor: hand;
+
+    -fx-padding: 20;
+
+>>>>>>> e08e4b9 (codigo com dashboard)
     -fx-effect: dropshadow(
         gaussian,
         rgba(0,0,0,0.15),
@@ -89,9 +161,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 ========================= */
 
 .card:hover {
+<<<<<<< HEAD
     -fx-scale-x: 1.04;
     -fx-scale-y: 1.04;
     -fx-background-color: #eef7ff;
+=======
+
+    -fx-scale-x: 1.04;
+    -fx-scale-y: 1.04;
+
+    -fx-background-color: #eef7ff;
+
+>>>>>>> e08e4b9 (codigo com dashboard)
     -fx-effect: dropshadow(
         gaussian,
         rgba(0,0,0,0.30),
@@ -107,8 +188,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 ========================= */
 
 .card-title {
+<<<<<<< HEAD
     -fx-fill: #0598ff;
     -fx-font-size: 28px;
+=======
+
+    -fx-fill: #0598ff;
+
+    -fx-font-size: 28px;
+
+>>>>>>> e08e4b9 (codigo com dashboard)
     -fx-font-weight: bold;
 }
 
@@ -117,8 +206,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 ========================= */
 
 .card-subtitle {
+<<<<<<< HEAD
     -fx-fill: #777777;
     -fx-font-size: 16px;
 }
 
 
+=======
+
+    -fx-fill: #777777;
+
+    -fx-font-size: 16px;
+}
+>>>>>>> e08e4b9 (codigo com dashboard)

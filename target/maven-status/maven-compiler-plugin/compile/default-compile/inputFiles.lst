@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /home/alunos/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/ProdutoDAO.java
 /home/alunos/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/Avaliacao.java
 /home/alunos/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/TelaLoginController.java
@@ -14,3 +15,20 @@
 /home/alunos/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/TelaCadastroUsuarioController.java
 /home/alunos/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/Initializable.java
 /home/alunos/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/UsuarioDAO.java
+=======
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/TelaInicioController.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/TelaCadastroProdutosController.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/TelaGerenciamentoUsuariosController.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/App.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/TelaLoginController.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/Produto.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/DashboardController.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/TelaGerenciamentoProdutosController.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/UsuarioDAO.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/Conexao.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/module-info.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/Avaliacao.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/TelaCadastroUsuarioController.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/ProdutoDAO.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/Usuario.java
+>>>>>>> e08e4b9 (codigo com dashboard)

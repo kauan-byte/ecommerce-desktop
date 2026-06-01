@@ -13,11 +13,9 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -29,7 +27,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author aluno
+ * @author douglas
  */
 public class TelaGerenciamentoUsuariosController implements Initializable {
 
@@ -53,35 +51,33 @@ public class TelaGerenciamentoUsuariosController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            // TODO
-            colNomeCompleto.setCellValueFactory(new PropertyValueFactory<>("nomeCompleto"));
-            colUsuario.setCellValueFactory(new PropertyValueFactory<>("nomeUsuario"));
-            colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-            colCPF.setCellValueFactory(new PropertyValueFactory<>("CPF"));
-            carregarUsuarios();
-        } catch (SQLException ex) {
-            System.getLogger(TelaGerenciamentoUsuariosController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-        }
+        // TODO
+
+        colNomeCompleto.setCellValueFactory(new PropertyValueFactory<>("nomeCompleto"));
+        colUsuario.setCellValueFactory(new PropertyValueFactory<>("nomeUsuario"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colCPF.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+
+        carregarUsuarios();
     }
 
     @FXML
     private void abrirTelaCadastroUsuario() throws IOException {
-         FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/br/edu/tds/ecommerce/TelaCadastro.fxml"));
-            Parent root = loader.load();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/edu/tds/ecommerce/telaCadastroUsuario.fxml"));
 
-            TelaCadastroUsuarioController controller = loader.getController();
+        Parent root = loader.load();
 
-            Stage stage = (Stage) tabelaUsuarios.getScene().getWindow();
-            stage.setScene(new Scene(root));
+        TelaCadastroUsuarioController controller = loader.getController();
+
+        //Trocando de tela
+        Stage stage = (Stage) tabelaUsuarios.getScene().getWindow();
+        stage.setScene(new Scene(root));
     }
 
-    private void carregarUsuarios() throws SQLException {
-
-        System.out.println("Dentro do método carregarUsuarios()é");
+    private void carregarUsuarios() {
 
         ObservableList<Usuario> listaUsuarios = FXCollections.observableArrayList();
+
         String sql = "SELECT * FROM usuarios";
         try (Connection conn = Conexao.conectar()) {
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -92,15 +88,16 @@ public class TelaGerenciamentoUsuariosController implements Initializable {
                 u.setNomeCompleto(rs.getString("nomeCompleto"));
                 u.setNomeUsuario(rs.getString("nomeUsuario"));
                 u.setEmail(rs.getString("email"));
-                u.setCPF(rs.getString("cpf"));
+                u.setCpf(rs.getString("cpf"));
                 u.setSenha(rs.getString("senha"));
-
-                System.out.println("Usuário: " + u.getNomeCompleto());
+                u.setRole(rs.getString("role"));
 
                 listaUsuarios.add(u);
-                System.out.println("Nº de usuarios: " + listaUsuarios.size());
             }
+
             tabelaUsuarios.setItems(listaUsuarios);
+
+        } catch (Exception e) {
         }
     }
 
@@ -110,15 +107,14 @@ public class TelaGerenciamentoUsuariosController implements Initializable {
         Usuario uSelecionado = tabelaUsuarios.getSelectionModel().getSelectedItem();
 
         if (uSelecionado == null) {
-            System.out.println("Selecione um usuário");
+            mostrarAlerta("Selecione um usuário");
             return;
         }
-
-        System.out.println("Usuario: " + uSelecionado.getNomeUsuario());
 
         String sql = "DELETE FROM usuarios WHERE nomeUsuario = ?";
 
         try (Connection conn = Conexao.conectar(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
             stmt.setString(1, uSelecionado.getNomeUsuario());
             stmt.executeUpdate();
 
@@ -126,7 +122,6 @@ public class TelaGerenciamentoUsuariosController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
@@ -138,25 +133,29 @@ public class TelaGerenciamentoUsuariosController implements Initializable {
             mostrarAlerta("Selecione um usuário");
             return;
         }
+
         try {
 
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/br/edu/tds/ecommerce/TelaCadastro.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/edu/tds/ecommerce/telaCadastroUsuario.fxml"));
+
             Parent root = loader.load();
 
             TelaCadastroUsuarioController controller = loader.getController();
 
+            //Envia os dados da tela Gerenciamento de Usuarios
+            //para o controlador de Cadastro de Usuarios
             controller.setUsuario(uSelecionado);
 
+            //Trocando de tela
             Stage stage = (Stage) tabelaUsuarios.getScene().getWindow();
             stage.setScene(new Scene(root));
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
-    @FXML
     private void mostrarAlerta(String msg) {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -165,6 +164,5 @@ public class TelaGerenciamentoUsuariosController implements Initializable {
         alert.setContentText(msg);
         alert.showAndWait();
     }
-    
-    
+
 }

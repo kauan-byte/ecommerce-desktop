@@ -27,6 +27,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
+<<<<<<< HEAD
  * @author aluno
  */
 public class TelaGerenciamentoProdutosController implements Initializable {
@@ -46,6 +47,29 @@ public class TelaGerenciamentoProdutosController implements Initializable {
     
     
 
+=======
+ * @author douglas
+ */
+public class TelaGerenciamentoProdutosController implements Initializable {
+
+    @FXML
+    private TableView<Produto> tabelaProdutos;
+
+    @FXML
+    private TableColumn<Produto, String> colNome;
+
+    @FXML
+    private TableColumn<Produto, String> colCategoria;
+
+    @FXML
+    private TableColumn<Produto, Double> colPreco;
+
+    @FXML
+    private TableColumn<Produto, Integer> colQuantidade;
+
+    @FXML
+    private TableColumn<Produto, Boolean> colAtivo;
+>>>>>>> e08e4b9 (codigo com dashboard)
 
     /**
      * Initializes the controller class.
@@ -58,6 +82,7 @@ public class TelaGerenciamentoProdutosController implements Initializable {
         colPreco.setCellValueFactory(new PropertyValueFactory<>("Preco"));
         colQuantidade.setCellValueFactory(new PropertyValueFactory<>("Quantidade"));
         colAtivo.setCellValueFactory(new PropertyValueFactory<>("Ativo"));
+<<<<<<< HEAD
         
         try {
             carregarProdutos();
@@ -71,19 +96,34 @@ public class TelaGerenciamentoProdutosController implements Initializable {
        
 
         ObservableList<Produto> listaProdutos = FXCollections.observableArrayList();
+=======
+
+        carregarProdutos();
+    }
+
+    private void carregarProdutos() {
+
+        ObservableList<Produto> listaProdutos = FXCollections.observableArrayList();
+
+>>>>>>> e08e4b9 (codigo com dashboard)
         String sql = "SELECT * FROM produtos";
         try (Connection conn = Conexao.conectar()) {
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
+<<<<<<< HEAD
                 Produto p= new Produto();
+=======
+                Produto p = new Produto();
+>>>>>>> e08e4b9 (codigo com dashboard)
                 p.setId(Integer.parseInt(rs.getString("id")));
                 p.setNome(rs.getString("nome"));
                 p.setCategoria(rs.getString("categoria"));
                 p.setPreco(Double.parseDouble(rs.getString("preco")));
                 p.setQuantidade(Integer.parseInt(rs.getString("quantidade")));
                 p.setImagem(rs.getString("imagem"));
+<<<<<<< HEAD
                 p.setAtivo(rs.getString("ativo").equals("0")? false:true);
                 p.setDescricao(rs.getString("descricao"));
                
@@ -108,6 +148,34 @@ public class TelaGerenciamentoProdutosController implements Initializable {
             stage.setScene(new Scene(root));
     }
     
+=======
+                p.setAtivo(rs.getString("ativo").equals("0") ? false : true);
+                p.setDescricao(rs.getString("descricao"));
+
+                System.out.println("Ativo: " + rs.getString("ativo"));
+                listaProdutos.add(p);
+            }
+
+            tabelaProdutos.setItems(listaProdutos);
+
+        } catch (Exception e) {
+        }
+    }
+
+    @FXML
+    private void abrirTelaCadastroProduto() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/edu/tds/ecommerce/telaCadastroProdutos.fxml"));
+
+        Parent root = loader.load();
+
+        TelaCadastroProdutosController controller = loader.getController();
+
+        //Trocando de tela
+        Stage stage = (Stage) tabelaProdutos.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
+>>>>>>> e08e4b9 (codigo com dashboard)
     @FXML
     private void excluirProduto() throws SQLException {
 
@@ -121,6 +189,10 @@ public class TelaGerenciamentoProdutosController implements Initializable {
         String sql = "DELETE FROM produtos WHERE id = ?";
 
         try (Connection conn = Conexao.conectar(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> e08e4b9 (codigo com dashboard)
             stmt.setString(1, String.valueOf(pSelecionado.getId()));
             stmt.executeUpdate();
 
@@ -128,9 +200,14 @@ public class TelaGerenciamentoProdutosController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+<<<<<<< HEAD
 
     }
     
+=======
+    }
+
+>>>>>>> e08e4b9 (codigo com dashboard)
     @FXML
     private void editarProduto() throws SQLException {
 
@@ -140,25 +217,47 @@ public class TelaGerenciamentoProdutosController implements Initializable {
             mostrarAlerta("Selecione um produto");
             return;
         }
+<<<<<<< HEAD
         try {
 
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/br/edu/tds/ecommerce/telaCadastroProdutos.fxml"));
+=======
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/edu/tds/ecommerce/telaCadastroProdutos.fxml"));
+
+>>>>>>> e08e4b9 (codigo com dashboard)
             Parent root = loader.load();
 
             TelaCadastroProdutosController controller = loader.getController();
 
+<<<<<<< HEAD
             controller.setProduto(pSelecionado);
 
+=======
+            //Envia os dados da tela Gerenciamento de Usuarios
+            //para o controlador de Cadastro de Usuarios
+            controller.setProduto(pSelecionado);
+
+            //Trocando de tela
+>>>>>>> e08e4b9 (codigo com dashboard)
             Stage stage = (Stage) tabelaProdutos.getScene().getWindow();
             stage.setScene(new Scene(root));
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+<<<<<<< HEAD
     }
     
     @FXML
+=======
+
+    }
+
+>>>>>>> e08e4b9 (codigo com dashboard)
     private void mostrarAlerta(String msg) {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -168,5 +267,8 @@ public class TelaGerenciamentoProdutosController implements Initializable {
         alert.showAndWait();
     }
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> e08e4b9 (codigo com dashboard)
 }
