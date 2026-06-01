@@ -18,7 +18,7 @@ public class App extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("telaLogin"), 700, 500);
+        scene = new Scene(loadFXML("dashboard"), 700, 500);
         //Tirar as bordas da tela
         //stage.initStyle(StageStyle.DECORATED.UNDECORATED);
         

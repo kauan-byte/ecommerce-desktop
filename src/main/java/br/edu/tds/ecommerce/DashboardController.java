@@ -17,6 +17,16 @@ public class DashboardController {
     private void abrirUsuarios() throws IOException {
 
         System.out.println("Abrir Usuários");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/edu/tds/ecommerce/telaGerenciamentoUsuarios.fxml"));
+
+            Parent root = loader.load();
+
+            TelaGerenciamentoUsuariosController controller = loader.getController();
+
+            //Trocando de tela
+            Stage stage = (Stage) painelPrincipal.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setMaximized(false);
     }
 
     @FXML
