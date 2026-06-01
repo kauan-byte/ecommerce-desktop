@@ -4,6 +4,8 @@
 /home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/App.java
 /home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/TelaLoginController.java
 /home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/Produto.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/DashboardController.java
+/home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/TelaGerenciamentoProdutosController.java
 /home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/UsuarioDAO.java
 /home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/br/edu/tds/ecommerce/Conexao.java
 /home/aluno/NetBeansProjects/ecommerce-desktop/src/main/java/module-info.java

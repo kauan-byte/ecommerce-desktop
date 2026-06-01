@@ -11,18 +11,18 @@
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.tds.ecommerce.TelaGerenciamentoUsuariosController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.tds.ecommerce.TelaGerenciamentoProdutosController">
    <top>
       <HBox alignment="CENTER" prefHeight="57.0" prefWidth="700.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="43.0" prefWidth="392.0" style="-fx-background-color: #0598ff; -fx-font-size: 20; -fx-font-weight: 800;" text="Gerenciamento de Usuarios" textFill="#fcfcfc" />
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="392.0" style="-fx-background-color: #0598ff; -fx-font-size: 20; -fx-font-weight: 800;" text="Gerenciamento de Produtos" textFill="#fcfcfc" />
          </children>
       </HBox>
    </top>
    <bottom>
       <HBox alignment="CENTER" prefHeight="63.0" prefWidth="680.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#abrirTelaCadastroUsuario" style="-fx-background-color: #0598ff;" text="+ Novo">
+            <Button mnemonicParsing="false" onAction="#abrirTelaCadastroProduto" style="-fx-background-color: #0598ff;" text="+ Novo">
                <textFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -40,8 +40,8 @@
                   </RadialGradient>
                </textFill>
             </Button>
-            <Button mnemonicParsing="false" onAction="#editarUsuario" style="-fx-background-color: #ffa500;" text="| Editar" textFill="WHITE" />
-            <Button mnemonicParsing="false" onAction="#excluirUsuario" style="-fx-background-color: #ff4d4d;" text="x Excluir" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#editarProduto" style="-fx-background-color: #ffa500;" text="| Editar" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#excluirProduto" style="-fx-background-color: #ff4d4d;" text="x Excluir" textFill="WHITE" />
          </children>
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -49,12 +49,13 @@
       </HBox>
    </bottom>
    <center>
-      <TableView fx:id="tabelaUsuarios" prefHeight="299.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tabelaProdutos" prefHeight="299.0" prefWidth="700.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="colNomeCompleto" prefWidth="268.0" text="Nome Completo" />
-          <TableColumn fx:id="colUsuario" minWidth="0.0" prefWidth="129.0" text="Usuario" />
-            <TableColumn fx:id="colEmail" prefWidth="195.0" text="E-mail" />
-            <TableColumn fx:id="colCPF" prefWidth="107.0" text="CPF" />
+          <TableColumn fx:id="colNome" prefWidth="255.0" text="Nome Produto" />
+          <TableColumn fx:id="colCategoria" minWidth="0.0" prefWidth="139.0" text="Categoria" />
+            <TableColumn fx:id="colPreco" prefWidth="104.0" text="Preço" />
+            <TableColumn fx:id="colQuantidade" prefWidth="120.0" text="Quantidade" />
+            <TableColumn fx:id="colAtivo" text="Ativo" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
