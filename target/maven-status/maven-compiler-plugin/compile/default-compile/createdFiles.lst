@@ -1,8 +1,5 @@
 br/edu/tds/ecommerce/UsuarioDAO.class
-<<<<<<< HEAD
 br/edu/tds/ecommerce/Initializable.class
-=======
->>>>>>> e08e4b9 (codigo com dashboard)
 br/edu/tds/ecommerce/TelaGerenciamentoProdutosController.class
 br/edu/tds/ecommerce/Avaliacao.class
 module-info.class

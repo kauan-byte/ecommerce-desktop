@@ -54,8 +54,4 @@ public class DashboardController {
 
         System.out.println("logout");
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> e08e4b9 (codigo com dashboard)

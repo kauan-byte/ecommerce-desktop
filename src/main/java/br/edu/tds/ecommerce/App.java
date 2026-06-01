@@ -18,14 +18,10 @@ public class App extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-<<<<<<< HEAD
-        scene = new Scene(loadFXML("TelaLogin"), 640, 480);
-=======
         scene = new Scene(loadFXML("telaLogin"), 700, 500);
         //Tirar as bordas da tela
         //stage.initStyle(StageStyle.DECORATED.UNDECORATED);
         
->>>>>>> e08e4b9 (codigo com dashboard)
         stage.setScene(scene);
         stage.show();
     }

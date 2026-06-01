@@ -3,83 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<<<<<<< HEAD
-<?import javafx.scene.text.Text?>
-<?import org.kordamp.ikonli.javafx.FontIcon?>
-
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" stylesheets="@css/dashboard.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.tds.ecommerce.DashboardController">
-   <left>
-      <AnchorPane prefHeight="200.0" prefWidth="280.0" styleClass="sidebar" stylesheets="@css/dashboard.css" BorderPane.alignment="CENTER">
-         <children>
-            <FontIcon fill="WHITE" iconLiteral="fas-store" iconSize="75" layoutX="107.0" layoutY="96.0" />
-            <Text fill="WHITE" layoutX="87.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 25;" text="Dashboard" />
-            <Button layoutX="77.0" layoutY="178.0" mnemonicParsing="false" styleClass="menu-button" text="Usuários" />
-            <Button layoutX="79.0" layoutY="233.0" mnemonicParsing="false" styleClass="menu-button" text="Produtos" />
-            <Button layoutX="60.0" layoutY="294.0" mnemonicParsing="false" styleClass="menu-button" text="Fornecedores" />
-            <Button layoutX="84.0" layoutY="358.0" mnemonicParsing="false" styleClass="menu-button" text="Vendas" />
-            <Button layoutX="70.0" layoutY="423.0" mnemonicParsing="false" styleClass="menu-button" text="Financeiro" />
-            <Button layoutX="75.0" layoutY="485.0" mnemonicParsing="false" styleClass="menu-button" text="Relatórios" />
-            <FontIcon iconColor="WHITE" iconLiteral="fas-users" iconSize="25" layoutX="34.0" layoutY="214.0" />
-            <FontIcon iconColor="WHITE" iconLiteral="fas-box-open" iconSize="25" layoutX="29.0" layoutY="269.0" />
-            <FontIcon iconColor="WHITE" iconLiteral="fas-truck" iconSize="25" layoutX="29.0" layoutY="332.0" text="" />
-            <FontIcon iconColor="WHITE" iconLiteral="fas-shopping-cart" iconSize="25" layoutX="31.0" layoutY="394.0" />
-            <FontIcon iconColor="WHITE" iconLiteral="fas-dollar-sign" iconSize="25" layoutX="38.0" layoutY="461.0" text="" />
-            <FontIcon iconColor="WHITE" iconLiteral="fas-chart-line" iconSize="25" layoutX="32.0" layoutY="522.0" text="" />
-            <Button layoutX="80.0" layoutY="749.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="109.0" styleClass="logout-button" text="Logout" />
-         </children>
-      </AnchorPane>
-   </left>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="dashboard-background" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane layoutX="40.0" layoutY="40.0" onMouseClicked="#abrirUsuarios" prefHeight="300.0" prefWidth="360.0" styleClass="card">
-               <children>
-                  <FontIcon iconColor="#0598ff" iconLiteral="fas-users" iconSize="90" layoutX="135.0" layoutY="110.0" />
-                  <Text layoutX="90.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-title" text="Usuários" />
-                  <Text layoutX="55.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-subtitle" text="Gerencie usuários do sistema" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="430.0" layoutY="40.0" onMouseClicked="#abrirProdutos" prefHeight="300.0" prefWidth="360.0" styleClass="card">
-               <children>
-                  <FontIcon iconColor="#0598ff" iconLiteral="fas-box-open" iconSize="90" layoutX="135.0" layoutY="110.0" />
-                  <Text layoutX="90.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-title" text="Produtos" />
-                  <Text layoutX="55.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-subtitle" text="Controle de estoque e catálogo" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="820.0" layoutY="40.0" onMouseClicked="#abrirFornecedores" prefHeight="300.0" prefWidth="360.0" styleClass="card">
-               <children>
-                  <FontIcon iconColor="#0598ff" iconLiteral="fas-truck" iconSize="90" layoutX="135.0" layoutY="110.0" />
-                  <Text layoutX="90.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-title" text="Fornecedores" />
-                  <Text layoutX="55.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-subtitle" text="Controle de fornecedores" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="40.0" layoutY="390.0" onMouseClicked="#abrirVendas" prefHeight="300.0" prefWidth="360.0" styleClass="card">
-               <children>
-                  <FontIcon iconColor="#0598ff" iconLiteral="fas-shopping-cart" iconSize="90" layoutX="135.0" layoutY="110.0" />
-                  <Text layoutX="90.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-title" text="Vendas" />
-                  <Text layoutX="55.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-subtitle" text="Gerenciamento de vendas" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="430.0" layoutY="390.0" onMouseClicked="#abrirFinanceiro" prefHeight="300.0" prefWidth="360.0" styleClass="card">
-               <children>
-                  <FontIcon iconColor="#0598ff" iconLiteral="fas-dollar-sign" iconSize="90" layoutX="135.0" layoutY="110.0" />
-                  <Text layoutX="90.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-title" text="Financeiro" />
-                  <Text layoutX="55.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-subtitle" text="Controle financeiro geral" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="820.0" layoutY="390.0" onMouseClicked="#abrirRelatorios" prefHeight="300.0" prefWidth="360.0" styleClass="card">
-               <children>
-                  <FontIcon iconColor="#0598ff" iconLiteral="fas-chart-line" iconSize="90" layoutX="135.0" layoutY="110.0" />
-                  <Text layoutX="90.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-title" text="Relatórios" />
-                  <Text layoutX="55.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-subtitle" text="Estatísticas e resultados" />
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-   </center>
-</BorderPane>
-=======
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
@@ -492,4 +415,3 @@
     </center>
 
 </BorderPane>
->>>>>>> e08e4b9 (codigo com dashboard)

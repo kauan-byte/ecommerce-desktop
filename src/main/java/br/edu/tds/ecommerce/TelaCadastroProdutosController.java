@@ -23,25 +23,6 @@ import javafx.scene.control.TextField;
  * @author douglas
  */
 public class TelaCadastroProdutosController implements Initializable {
-<<<<<<< HEAD
- @FXML
- private TextField txtNome;
- @FXML
- private TextField txtPreco;
- @FXML
- private TextField txtQuantidade;
- @FXML
- private TextField txtImagem;
- @FXML
- private TextArea txtDescricao;
- @FXML
-   private ComboBox<String> cbCategoria;
- @FXML 
- private CheckBox cAtivo;
- @FXML
-    private Produto produtoEdicao;
-=======
->>>>>>> e08e4b9 (codigo com dashboard)
 
     @FXML
     private TextField txtNome;
@@ -95,22 +76,6 @@ public class TelaCadastroProdutosController implements Initializable {
           validado = false;
         }
         
-<<<<<<< HEAD
-        public void setProduto(Produto p){
-       produtoEdicao = p;
-       
-       txtNome.setText(produtoEdicao.getNome());
-       cbCategoria.setValue(produtoEdicao.getCategoria());
-       txtPreco.setText(String.valueOf(produtoEdicao.getPreco()));
-       txtQuantidade.setText(String.valueOf(produtoEdicao.getQuantidade()));
-       txtImagem.setText(produtoEdicao.getImagem());
-       txtDescricao.setText(produtoEdicao.getDescricao());
-       cAtivo.setSelected(produtoEdicao.isAtivo());
-       
-    }
-        
-        private void mostrarAlerta(String msg) {
-=======
         if(txtPreco.getText().isEmpty()){
           txtPreco.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0 0 3 0;");    
           validado = false;
@@ -175,7 +140,6 @@ public class TelaCadastroProdutosController implements Initializable {
     }
     
     private void mostrarAlerta(String msg) {
->>>>>>> e08e4b9 (codigo com dashboard)
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Sistema");
         alert.setHeaderText(null);
