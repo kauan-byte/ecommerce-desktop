@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -32,7 +33,7 @@
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="500.0" prefWidth="446.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="546.0" prefWidth="446.0" BorderPane.alignment="CENTER">
          <children>
             <FontIcon iconColor="#0598ff" iconLiteral="fas-box" iconSize="60" layoutX="193.0" layoutY="67.0" selectionEnd="0" />
             <Text fill="#0598ff" layoutX="109.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Produtos">
@@ -48,9 +49,18 @@
             <TextField fx:id="txtQuantidade" layoutX="275.0" layoutY="250.0" prefHeight="29.0" prefWidth="137.0" promptText="Quantidade" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0 0 3 0;" />
             <FontIcon iconColor="#0598ff" iconLiteral="fas-dollar-sign" iconSize="20" layoutX="46.0" layoutY="270.0" />
             <FontIcon iconColor="#0598ff" iconLiteral="fas-cubes" iconSize="20" layoutX="245.0" layoutY="275.0" />
-            <TextField fx:id="txtImagem" layoutX="71.0" layoutY="294.0" prefHeight="29.0" prefWidth="342.0" promptText="URL da imagem" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0 0 3 0;" />
+            
+            <TextField fx:id="txtImagem" layoutX="71.0" layoutY="294.0" prefHeight="29.0" prefWidth="250.0" promptText="URL ou caminho da imagem" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0 0 3 0;" />
             <FontIcon iconColor="#0598ff" iconLiteral="fas-image" iconSize="20" layoutX="42.0" layoutY="316.0" />
-            <TextArea fx:id="txtDescricao" layoutX="71.0" layoutY="339.0" prefHeight="57.0" prefWidth="344.0" promptText="Descriçao do Produto" style="-fx-control-inner-background: transparent; -fx-border-color: #0598ff; -fx-border-width: 0 0 3 0; -fx-prompt-text-fill: #888888; -fx-text-fill: black;" />
+            
+            <Button layoutX="332.0" layoutY="296.0" mnemonicParsing="false" onAction="#selecionarImagem" style="-fx-background-color: #0598ff;" text="Selecionar" textFill="WHITE" />
+
+            <TextArea fx:id="txtDescricao" layoutX="193.0" layoutY="340.0" prefHeight="57.0" prefWidth="200.0" promptText="Descrição do Produto" style="-fx-control-inner-background: transparent; -fx-border-color: #0598ff; -fx-border-width: 0 0 3 0; -fx-prompt-text-fill: #888888; -fx-text-fill: black;" />
+            
+            <ImageView fx:id="imgProduto" fitHeight="90.0" fitWidth="120.0" layoutX="62.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);" />
+
+            <CheckBox fx:id="cAtivo" layoutX="196.0" layoutY="411.0" mnemonicParsing="false" text="Ativo" />
+
             <Button fx:id="btnCadastrar" layoutX="122.0" layoutY="454.0" mnemonicParsing="false" onAction="#salvarProduto" style="-fx-background-color: #0598ff;" text="Cadastrar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
@@ -61,7 +71,6 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <CheckBox fx:id="cAtivo" layoutX="71.0" layoutY="412.0" mnemonicParsing="false" text="Ativo" />
          </children>
       </AnchorPane>
    </center>

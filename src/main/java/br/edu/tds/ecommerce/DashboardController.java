@@ -33,6 +33,16 @@ public class DashboardController {
     private void abrirProdutos() throws IOException {
 
         System.out.println("Abrir Produtos");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/edu/tds/ecommerce/telaGerenciamentoProdutos.fxml"));
+
+            Parent root = loader.load();
+
+            TelaGerenciamentoProdutosController controller = loader.getController();
+
+            //Trocando de tela
+            Stage stage = (Stage) painelPrincipal.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setMaximized(false);
     }
 
     @FXML
