@@ -1,8 +1,8 @@
+br/edu/tds/ecommerce/CloudinaryConfig.class
 br/edu/tds/ecommerce/UsuarioDAO.class
 br/edu/tds/ecommerce/Initializable.class
 br/edu/tds/ecommerce/TelaGerenciamentoProdutosController.class
 br/edu/tds/ecommerce/Avaliacao.class
-module-info.class
 br/edu/tds/ecommerce/Conexao.class
 br/edu/tds/ecommerce/ProdutoDAO.class
 br/edu/tds/ecommerce/TelaLoginController.class

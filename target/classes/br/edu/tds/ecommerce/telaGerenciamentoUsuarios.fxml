@@ -15,12 +15,13 @@
    <top>
       <HBox alignment="CENTER" prefHeight="57.0" prefWidth="700.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="43.0" prefWidth="392.0" style="-fx-background-color: #0598ff; -fx-font-size: 20; -fx-font-weight: 800;" text="Gerenciamento de Usuarios" textFill="#fcfcfc" />
+            <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-width: 3 3 3 3; -fx-border-color: white;" text="Voltar" textFill="WHITE" />
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="611.0" style="-fx-background-color: #0598ff; -fx-font-size: 20; -fx-font-weight: 800;" text="Gerenciamento de Usuarios" textFill="#fcfcfc" />
          </children>
       </HBox>
    </top>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="63.0" prefWidth="680.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="63.0" prefWidth="576.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#abrirTelaCadastroUsuario" style="-fx-background-color: #0598ff;" text="+ Novo">
                <textFill>
