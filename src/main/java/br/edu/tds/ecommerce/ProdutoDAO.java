@@ -20,8 +20,8 @@ public class ProdutoDAO {
                 + "quantidade, imagem, ativo) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = Conexao.conectar(); PreparedStatement stmt
-                = conn.prepareStatement(sql)) {
+        try (Connection conn = Conexao.conectar(); 
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, p.getNome());
             stmt.setString(2, p.getDescricao());
@@ -30,6 +30,7 @@ public class ProdutoDAO {
             stmt.setInt(5, p.getQuantidade());
             stmt.setString(6, p.getImagem());
             stmt.setBoolean(7, p.isAtivo());
+            
             stmt.executeUpdate();
             System.out.println("Produto cadastrado com sucesso!");
         } catch (Exception e) {

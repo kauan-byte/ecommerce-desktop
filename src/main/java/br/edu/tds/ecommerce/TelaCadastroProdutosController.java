@@ -1,16 +1,20 @@
 package br.edu.tds.ecommerce;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -19,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -62,21 +67,15 @@ public class TelaCadastroProdutosController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         cbCategoria.getItems().add(0, "Celulares");
         cbCategoria.getItems().add(1, "Eletrônicos");
         cbCategoria.getItems().add(2, "Informática");
         cbCategoria.getItems().add(3, "Jogos");
         cbCategoria.getItems().add(4, "Livros");
         cbCategoria.getItems().add(5, "Roupas");
-
-        //cbCategoria.getItems().addAll("Eletrônio","Informática");
-        //ObservableList<String> opcoes = FXCollections.observableArrayList("Item 1", "Item 2");
-        //cbCategoria.setItems(opcoes);
     }
 
     private boolean validarCampos() {
-
         boolean validado = true;
 
         if (txtNome.getText().isEmpty()) {
@@ -112,30 +111,50 @@ public class TelaCadastroProdutosController implements Initializable {
 
         boolean status = validarCampos();
 
-        String caminhoImagem
-                = salvarImagem(
-                        arquivoSelecionado
-                );
-
         if (status) {
-            //salvo os dados do produto no banco de dados
-            //mostrarAlerta("Formulário Validado");
+            String urlCloudinary = null;
 
+            // 1. Envia a imagem para o Cloudinary se houver um arquivo selecionado
+            if (arquivoSelecionado != null) {
+                try {
+                    Cloudinary cloudinary = CloudinaryConfig.getCloudinary();
+                    Map uploadResult = cloudinary.uploader().upload(
+                            arquivoSelecionado, 
+                            ObjectUtils.emptyMap()
+                    );
+                    
+                    // Recupera a URL segura da nuvem
+                    urlCloudinary = (String) uploadResult.get("secure_url");
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    mostrarAlerta("Erro ao enviar a imagem para o Cloudinary. O produto não foi salvo.");
+                    return; // Aborta o método para não cadastrar sem o link da imagem
+                }
+            } else if (produtoEdicao != null) {
+                // Caso seja uma edição e o usuário não alterou a foto, mantém a antiga
+                urlCloudinary = produtoEdicao.getImagem();
+            }
+
+            // 2. Monta o objeto Produto com a URL obtida
             Produto p = new Produto();
             p.setNome(txtNome.getText());
             p.setCategoria(cbCategoria.getValue());
             p.setPreco(Double.parseDouble(txtPreco.getText()));
             p.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
-            p.setImagem(caminhoImagem);
+            p.setImagem(urlCloudinary); // Grava o link 'https://...'
             p.setDescricao(txtDescricao.getText());
             p.setAtivo(cAtivo.isSelected());
 
+            // 3. Persiste no banco de dados
             ProdutoDAO dao = new ProdutoDAO();
             dao.cadastrarProduto(p);
             mostrarAlerta("Produto cadastrado com sucesso!");
 
+            // Retorna para a tela de gerenciamento após o cadastro de sucesso
+            voltarParaGerenciamento();
+
         } else {
-            //corrigir informações do formulário
             mostrarAlerta("Todos os campos são obrigatórios");
         }
     }
@@ -151,17 +170,14 @@ public class TelaCadastroProdutosController implements Initializable {
         txtDescricao.setText(produtoEdicao.getDescricao());
         cAtivo.setSelected(produtoEdicao.isAtivo());
 
-        Image image
-                = new Image(
-                        new File(
-                                produtoEdicao.getImagem()
-                        )
-                                .toURI()
-                                .toString()
-                );
-
-        imgProduto.setImage(image);
-
+        // Carrega o ImageView tratando se é um link web ou arquivo local antigo
+        if (produtoEdicao.getImagem() != null && !produtoEdicao.getImagem().isEmpty()) {
+            if (produtoEdicao.getImagem().startsWith("http")) {
+                imgProduto.setImage(new Image(produtoEdicao.getImagem()));
+            } else {
+                imgProduto.setImage(new Image(new File(produtoEdicao.getImagem()).toURI().toString()));
+            }
+        }
     }
 
     private void mostrarAlerta(String msg) {
@@ -175,8 +191,7 @@ public class TelaCadastroProdutosController implements Initializable {
     @FXML
     private void selecionarImagem() {
 
-        FileChooser fileChooser
-                = new FileChooser();
+        FileChooser fileChooser = new FileChooser();
 
         fileChooser.getExtensionFilters().add(
                 new FileChooser.ExtensionFilter(
@@ -187,19 +202,17 @@ public class TelaCadastroProdutosController implements Initializable {
                 )
         );
 
-        arquivoSelecionado
-                = fileChooser.showOpenDialog(
-                        txtImagem.getScene().getWindow()
-                );
+        arquivoSelecionado = fileChooser.showOpenDialog(
+                txtImagem.getScene().getWindow()
+        );
 
         if (arquivoSelecionado != null) {
 
-            Image image
-                    = new Image(
-                            arquivoSelecionado
-                                    .toURI()
-                                    .toString()
-                    );
+            Image image = new Image(
+                    arquivoSelecionado
+                            .toURI()
+                            .toString()
+            );
 
             imgProduto.setImage(image);
 
@@ -209,49 +222,23 @@ public class TelaCadastroProdutosController implements Initializable {
         }
     }
 
-    private String salvarImagem(File arquivo) {
-
+    @FXML
+    private void voltarParaGerenciamento() {
         try {
-
-            String pastaDestino
-                    = "imagens_produtos/";
-
-            File diretorio
-                    = new File(pastaDestino);
-
-            if (!diretorio.exists()) {
-
-                diretorio.mkdir();
-            }
-
-            String nomeArquivo
-                    = System.currentTimeMillis()
-                    + "_"
-                    + arquivo.getName();
-
-            Path origem
-                    = arquivo.toPath();
-
-            Path destino
-                    = Path.of(
-                            pastaDestino,
-                            nomeArquivo
-                    );
-
-            Files.copy(
-                    origem,
-                    destino,
-                    StandardCopyOption.REPLACE_EXISTING
-            );
-
-            return destino.toString();
-
-        } catch (Exception e) {
-
+            // Carrega o FXML com o nome exato fornecido (telaGerenciamentoProdutos.fxml)
+            Parent root = FXMLLoader.load(getClass().getResource("telaGerenciamentoProdutos.fxml"));
+            
+            // Obtém o Stage atual a partir do componente txtNome
+            Stage stage = (Stage) txtNome.getScene().getWindow();
+            
+            // Define e exibe a nova cena
+            stage.setScene(new Scene(root));
+            stage.setTitle("Gerenciamento de Produtos");
+            stage.show();
+            
+        } catch (IOException e) {
             e.printStackTrace();
-
-            return null;
+            mostrarAlerta("Erro ao retornar para a tela de gerenciamento.");
         }
     }
-
 }
